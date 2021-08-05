@@ -1,5 +1,5 @@
 // set totalCount to HTML 
-totalCount = document.getElementById('count-el')
+let totalCount = document.getElementById('count-el')
 // store save paragraph in a variable
 let saveCount = document.getElementById('save') 
 // initialize count variable as 0
