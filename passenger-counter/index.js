@@ -7,21 +7,24 @@ let count = 0
 
 function increment() {
     count += 1
-    return totalCount.innerHTML = count // html now equals count
+    return totalCount.textContent = count // html now equals count
 }
 
 function save() {
     // store current count in variable that's called each time the save button is pressed
     let countStr = `${count} - `
-    return saveCount.innerHTML += countStr
+    saveCount.textContent += countStr
+    // reset counter and HTML to 0 on save
+    totalCount.textContent = 0
+    count = 0
 }
 
 // welcome 
 welcomeParagraph = document.getElementById('welcome')
 let userName = 'Derrick'
 let greeting = 'Hello,'
-welcomeParagraph.innerHTML = `${greeting} ${userName}`
-welcomeParagraph.innerHTML += ' 😄'
+welcomeParagraph.textContent = `${greeting} ${userName}`
+welcomeParagraph.textContent += ' 😄'
 
 
 
