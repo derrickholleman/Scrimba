@@ -7,7 +7,7 @@ let count = 0
 
 function increment() {
     count += 1
-    return totalCount.textContent = count // html now equals count
+    totalCount.textContent = count // html now equals count
 }
 
 function save() {
