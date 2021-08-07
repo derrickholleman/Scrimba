@@ -11,9 +11,7 @@ function increment() {
 }
 
 function save() {
-    // store current count in variable that's called each time the save button is pressed
-    let countStr = `${count} - `
-    saveCount.textContent += countStr
+    saveCount.textContent += `${count} - `
     // reset counter and HTML to 0 on save
     totalCount.textContent = 0
     count = 0
