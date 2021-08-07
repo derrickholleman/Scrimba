@@ -29,7 +29,7 @@ function renderGame() {
         message.textContent = 'You win!'
         document.getElementById('newCard-btn').disabled = true
     } else {
-        message.textContent = "You're out of the game!"
+        message.textContent = "You're out of the game! Press 'Reset' to play again"
         document.getElementById('newCard-btn').disabled = true
     }
 
