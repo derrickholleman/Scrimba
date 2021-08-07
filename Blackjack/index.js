@@ -1,8 +1,6 @@
-let firstCard = 4
-let secondCard = 6
+let firstCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
+let secondCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
 let sum = firstCard + secondCard
-let hasBlackJack = false
-let isAlive = true
 
 let message = document.getElementById('message-el')
 let displaySum = document.getElementById('sum-el')
