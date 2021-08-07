@@ -1,5 +1,5 @@
-let firstCard = 14
-let secondCard = 3
+let firstCard = 4
+let secondCard = 6
 let sum = firstCard + secondCard
 let hasBlackJack = false
 let isAlive = true
@@ -17,10 +17,8 @@ function renderGame() {
         message.textContent = 'Do you want to draw a new card?'
     } else if (sum === 21) {
         message.textContent = 'You win!'
-        hasBlackJack = true
     } else {
         message.textContent = "You're out of the game!"
-        isAlive = false
     }
     displayCards.textContent = `Cards: ${firstCard} ${secondCard}`
     displaySum.textContent = `Sum: ${sum}`
