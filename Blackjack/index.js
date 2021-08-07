@@ -1,10 +1,5 @@
-// create cards
-let firstCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
-let secondCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
-
 // create card array 
-let cardHolder = []
-cardHolder.push(firstCard, secondCard)
+let cardHolder = [Math.floor(Math.random() * (11 - 2 + 1) + 2), Math.floor(Math.random() * (11 - 2 + 1) + 2)]
 
 // get sum of current cards
 let sum = cardHolder.reduce((a, b) => a + b)
