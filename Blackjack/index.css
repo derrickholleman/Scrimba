@@ -39,6 +39,7 @@ h1 {
     width: 15rem;
     margin-top: 2rem;
     cursor: pointer;
+    box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
 #start-btn:active {
     transform: scale(.98);
@@ -54,6 +55,7 @@ h1 {
     width: 15rem;
     margin-top: 2rem;
     cursor: pointer;
+    box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
 #newCard-btn:active {
     transform: scale(.98);
