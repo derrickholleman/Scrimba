@@ -20,7 +20,6 @@ function startGame() {
 }
 
 function renderGame() {
-
     // display player status message
     if (sum <= 20) {
         message.textContent = 'Do you want to draw a new card?'
@@ -41,14 +40,15 @@ function renderGame() {
 }
 
 function newCard() {
-
     // draw new card with random number
     let card = Math.floor(Math.random() * (11 - 2 + 1) + 2)
+
     // add card value to current sum
     sum += card
 
     // add new card to card array
     cardHolder.push(card)
+    
     renderGame()
 }
 
