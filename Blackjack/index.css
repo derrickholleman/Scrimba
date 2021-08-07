@@ -9,10 +9,52 @@ body {
 h1 {
     color: goldenrod;
     font-size: 3rem;
-    margin-top: 5rem;
+    margin: 3rem 0rem;
 }
 
 #message-el {
     font-size: 1.75rem;
     font-style: italic;
+}
+
+.cards-sum {
+    font-size: 1.25rem;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+#start-btn {
+    color: rgb(12, 88, 12);
+    background-color: goldenrod;
+    border: none;
+    font-weight: bold;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    padding: .5rem 0rem;
+    width: 15rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+#start-btn:active {
+    transform: scale(.98);
+}
+#newCard-btn {
+    color: rgb(12, 88, 12);
+    background-color: goldenrod;
+    border: none;
+    font-weight: bold;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    padding: .5rem 0rem;
+    width: 15rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+#newCard-btn:active {
+    transform: scale(.98);
 }
