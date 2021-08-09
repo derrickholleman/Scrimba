@@ -38,7 +38,6 @@ document.getElementById('reset-btn').disabled = true
 function startGame() {
     document.getElementById('start-btn').classList.add('clicked')
     document.getElementById('player-el').classList.add('show')
-    // dealer draws cards until dealer total is more than 15
 
     renderGame()
 }
@@ -192,9 +191,6 @@ function resetGame() {
         dealerCards.pop()
         dealerTotal = dealerCards.reduce((a, b) => a + b)
     }
-
-    // allow start button to be clicked again
-    document.getElementById('start-btn').disabled = false
 
     // disable stand button directly after reset 
     document.getElementById('stand-btn').disabled = true
