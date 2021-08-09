@@ -124,6 +124,7 @@ function getNewCard() {
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
+        document.getElementById('reset-btn').disabled = true
     } else if (playerTotal <= 20 && newCard === 11) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace1').classList.add('show')
@@ -131,6 +132,7 @@ function getNewCard() {
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
+        document.getElementById('reset-btn').disabled = true
     } else {
         // add card value to current sum
         playerTotal += newCard
