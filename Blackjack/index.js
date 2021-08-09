@@ -107,6 +107,7 @@ function getNewCard() {
         document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
+        document.getElementById('stand-btn').disabled = true
     } else if (sum <= 20 && newCard === 11) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace11').disabled = false
@@ -115,6 +116,7 @@ function getNewCard() {
         document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
+        document.getElementById('stand-btn').disabled = true
     } else {
         document.getElementById('ace11').disabled = true
         document.getElementById('ace1').disabled = true
