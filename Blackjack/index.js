@@ -13,7 +13,7 @@ function getRandomCard() {
 }
 // get player cards
 let cardHolder = [getRandomCard(), getRandomCard()]
-let sum = cardHolder.reduce((a, b) => a + b)
+let playerTotal = cardHolder.reduce((a, b) => a + b)
 
 // get dealer cards 
 let dealerCards = [getRandomCard(), getRandomCard(), getRandomCard()]
@@ -23,7 +23,7 @@ let dealerTotal = dealerCards.reduce((a, b) => a + b)
 let didWin = null
 
 let message = document.getElementById('message-el')
-let displaySum = document.getElementById('sum-el')
+let displayPlayerTotal = document.getElementById('sum-el')
 let displayCards = document.getElementById('cards-el')
 let displayDealerTotal = document.getElementById('dealer-el')
 // set default disabled state for buttons
@@ -38,13 +38,13 @@ function startGame() {
 }
 function stand() {
     document.getElementById('reset-btn').disabled = false
-    if (sum > dealerTotal && sum < 21 && dealerTotal !== 21) {
+    if (playerTotal > dealerTotal && playerTotal < 21 && dealerTotal !== 21) {
         message.textContent = "Good call! Press 'Reset' to play again"
         didWin = true
-    } else if (sum < 21 && dealerTotal > 21) {
+    } else if (playerTotal < 21 && dealerTotal > 21) {
         message.textContent = "You win! Press 'Reset' to play again"
         didWin = true
-    } else if (sum === dealerTotal) {
+    } else if (playerTotal === dealerTotal) {
         message.textContent = "It's a tie! Press 'Reset' to play again"
         didWin = null
     } else if (dealerTotal === 21) {
@@ -62,11 +62,11 @@ function stand() {
 function renderGame() {
     document.getElementById('stand-btn').disabled = false
     // display player status message
-    if (sum <= 20) {
+    if (playerTotal <= 20) {
         message.textContent = 'Do you want to draw a new card? Or STAND to be safe?'
         document.getElementById('newCard-btn').disabled = false
         document.getElementById('start-btn').disabled = true
-    } else if (sum === 21) {
+    } else if (playerTotal === 21) {
         message.textContent = "You win! Press 'Reset' to play again"
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
@@ -83,7 +83,7 @@ function renderGame() {
     displayCards.textContent = `Current Cards: ${cardHolder.map((card) => ` ${card}`)}`
 
     // display sum
-    displaySum.textContent = `Your Total: ${sum}`
+    displayPlayerTotal.textContent = `Your Total: ${playerTotal}`
 }
 
 function getNewCard() {
@@ -92,14 +92,14 @@ function getNewCard() {
     let newCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
 
     // if an Ace is drawn 
-    if (sum <= 20 && newCard === 1) {
+    if (playerTotal <= 20 && newCard === 1) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace1').classList.add('show')
         document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
-    } else if (sum <= 20 && newCard === 11) {
+    } else if (playerTotal <= 20 && newCard === 11) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace1').classList.add('show')
         document.getElementById('ace11').classList.add('show')
@@ -108,7 +108,7 @@ function getNewCard() {
         document.getElementById('stand-btn').disabled = true
     } else {
         // add card value to current sum
-        sum += newCard
+        playerTotal += newCard
         // add card to card array
         cardHolder.push(newCard)
         renderGame()
@@ -116,7 +116,7 @@ function getNewCard() {
 }
 
 function aceEquals1() {
-    sum += 1
+    playerTotal += 1
     cardHolder.push(1)
     // remove show class after choosing a number
     document.getElementById('ace1').classList.remove('show')
@@ -124,7 +124,7 @@ function aceEquals1() {
     renderGame()
 }
 function aceEquals11() {
-    sum += 11
+    playerTotal += 11
     cardHolder.push(11)
     document.getElementById('ace1').classList.remove('show')
     document.getElementById('ace11').classList.remove('show')
@@ -142,7 +142,7 @@ function resetGame() {
     }
 
     // reset text
-    displaySum.textContent = `Your total: `
+    displayPlayerTotal.textContent = `Your total: `
     displayCards.textContent = `Current cards: `
     message.textContent = `Want to play a round?`
     displayDealerTotal.textContent = `Dealer total: `
@@ -151,7 +151,7 @@ function resetGame() {
     cardHolder = [getRandomCard(), getRandomCard()]
 
     // reset sum
-    sum = cardHolder.reduce((a, b) => a + b)
+    playerTotal = cardHolder.reduce((a, b) => a + b)
 
     // reset dealer cards 
     dealerCards = [getRandomCard(), getRandomCard(), getRandomCard()]
