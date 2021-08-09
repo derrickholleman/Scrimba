@@ -51,20 +51,20 @@ function startGame() {
 function stand() {
     document.getElementById('reset-btn').disabled = false
     if (playerTotal > dealerTotal && playerTotal < 21 && dealerTotal !== 21) {
-        message.textContent = "Good call! Press 'Reset' to play again"
+        message.textContent = "Good call! Press 'New Game' to play again"
         didWin = true
     } else if (playerTotal < 21 && dealerTotal > 21) {
-        message.textContent = "You win! Press 'Reset' to play again"
+        message.textContent = "You win! Press 'New Game' to play again"
         didWin = true
     } else if (playerTotal === dealerTotal) {
-        message.textContent = "It's a tie! Press 'Reset' to play again"
+        message.textContent = "It's a tie! Press 'New Game' to play again"
         didWin = null
     } else if (dealerTotal === 21) {
         message.textContent = 'Dealer got 21, you lose!'
         didWin = false
     }
     else {
-        message.textContent = "Oh no!  You lost. Press 'Reset' to play again"
+        message.textContent = "Oh no!  You lost. Press 'New Game' to play again"
         didWin = false
     }
     displayDealerTotal.textContent = `Dealer Total: ${dealerTotal}`
@@ -79,13 +79,13 @@ function renderGame() {
         document.getElementById('newCard-btn').disabled = false
         document.getElementById('start-btn').disabled = true
     } else if (playerTotal === 21) {
-        message.textContent = "You win! Press 'Reset' to play again"
+        message.textContent = "You win! Press 'New Game' to play again"
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
         document.getElementById('reset-btn').disabled = false
         didWin = true
     } else {
-        message.textContent = "You're out of the game! Press 'Reset' to play again"
+        message.textContent = "You're out of the game! Press 'New Game' to play again"
         didWin = false
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
