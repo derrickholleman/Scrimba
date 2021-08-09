@@ -1,10 +1,12 @@
 <html>
     <head>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="index.css">
         <title>Blackjack</title>
     </head>
     <body>
         <h1>Blackjack</h1>
+        <p id='player-el'>Player 1 Winnings: </p>
         <div class="ace-btns">
             <button id='ace1' onclick="aceEquals1()">1</button>
             <button id='ace11' onclick="aceEquals11()">11</button>
@@ -24,7 +26,6 @@
             </div>
             <button id='reset-btn' onclick="resetGame()">RESET</button>
         </div>
-        <p id='player-el'>Player 1 Winnings: </p>
 
 
         <script src="index.js"></script>

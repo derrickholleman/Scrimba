@@ -38,6 +38,7 @@ document.getElementById('reset-btn').disabled = true
 
 function startGame() {
     document.getElementById('stand-btn').disabled = false
+    document.getElementById('reset-btn').disabled = true
     renderGame()
 }
 function stand() {
@@ -94,6 +95,7 @@ function renderGame() {
 }
 
 function getNewCard() {
+    document.getElementById('reset-btn').disabled = false
     // draw new card with random number
     let newCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
 
@@ -101,12 +103,16 @@ function getNewCard() {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace1').disabled = false
         document.getElementById('ace11').disabled = false
+        document.getElementById('ace1').classList.add('show')
+        document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
     } else if (sum <= 20 && newCard === 11) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
         document.getElementById('ace11').disabled = false
         document.getElementById('ace1').disabled = false
+        document.getElementById('ace1').classList.add('show')
+        document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
     } else {
@@ -162,4 +168,7 @@ function resetGame() {
 
     // disable stand button directly after reset 
     document.getElementById('stand-btn').disabled = true
+
+    document.getElementById('ace1').classList.remove('show')
+    document.getElementById('ace11').classList.remove('show')
 }

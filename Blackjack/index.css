@@ -8,21 +8,26 @@ body {
 
 h1 {
     color: goldenrod;
-    font-size: 3rem;
-    margin: 3rem 0rem 2rem 0rem;
+    font-size: clamp(2rem, 10vw, 5rem);
+    margin: 3rem 0rem 1rem 0rem;
 }
 
 #message-el {
-    font-size: 1.75rem;
+    font-size: clamp(1.25rem, 3vw, 2rem);
     font-style: italic;
+    max-width: 80%;
+    margin: 1rem auto;
 }
 
 #player-el {
-    font-size: 1.75rem;
+    font-size: clamp(1.25rem, 2vw, 2rem);
+    position: absolute;
+    top: -1rem;
+    right: 5%;
 }
 
 .info-section {
-    font-size: 1.25rem;
+    font-size: clamp(1.15rem, 2vw, 2rem)
 }
 
 .new-stand > button {
@@ -32,19 +37,19 @@ h1 {
 .btns {
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
+    margin: -1rem auto;
     align-items: center;
 }
 
 #start-btn {
     color: rgb(12, 88, 12);
-    background-color: goldenrod;
+    background-color: rgb(240, 137, 41);
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     border-radius: 3px;
     padding: .5rem 0rem;
-    width: 15rem;
+    width: 12rem;
     margin-top: 2rem;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
@@ -57,7 +62,7 @@ h1 {
     background-color: goldenrod;
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 12rem;
@@ -73,7 +78,7 @@ h1 {
     background-color: goldenrod;
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 12rem;
@@ -88,11 +93,11 @@ h1 {
     background-color: rgb(163, 34, 17);
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 10rem;
-    margin: 2rem auto;
+    margin: .5rem auto 1.5rem auto;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
@@ -101,7 +106,9 @@ h1 {
 }
 
 .ace-btns {
-    margin: -2rem auto;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
 }
 
 #ace1 {
@@ -109,30 +116,38 @@ h1 {
     background-color: rgb(5, 3, 2);
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(.9rem, 2vw, 2rem);
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 5rem;
-    margin: 2rem 1rem;
+    margin: 0 1rem;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+    display: none;
 }
 #ace1:active {
     transform: scale(.98);
+}
+#ace1.show {
+    display: block;
 }
 #ace11 {
     color: rgb(255, 255, 255);
     background-color: rgb(5, 3, 2);
     border: none;
     font-weight: bold;
-    font-size: 1.75rem;
+    font-size: clamp(.9rem, 2vw, 2rem);
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 5rem;
-    margin: 2rem 1rem;
+    margin: 0 1rem;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+    display: none;
 }
 #ace11:active {
     transform: scale(.98);
+}
+#ace11.show {
+    display: block;
 }
