@@ -9,7 +9,7 @@ body {
 h1 {
     color: goldenrod;
     font-size: 3rem;
-    margin: 3rem 0rem;
+    margin: 3rem 0rem 2rem 0rem;
 }
 
 #message-el {
@@ -17,15 +17,23 @@ h1 {
     font-style: italic;
 }
 
-.cards-sum {
+#player-el {
+    font-size: 1.75rem;
+}
+
+.info-section {
     font-size: 1.25rem;
+}
+
+.new-stand > button {
+    margin: .75rem;
 }
 
 .btns {
     display: flex;
     flex-direction: column;
-    width: fit-content;
     margin: 0 auto;
+    align-items: center;
 }
 
 #start-btn {
@@ -52,12 +60,27 @@ h1 {
     font-size: 1.75rem;
     border-radius: 3px;
     padding: .5rem 0rem;
-    width: 15rem;
+    width: 12rem;
     margin-top: 2rem;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
 #newCard-btn:active {
+    transform: scale(.98);
+}
+#stand-btn {
+    color: rgb(12, 88, 12);
+    background-color: goldenrod;
+    border: none;
+    font-weight: bold;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    padding: .5rem 0rem;
+    width: 12rem;
+    cursor: pointer;
+    box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+}
+#stand-btn:active {
     transform: scale(.98);
 }
 #reset-btn {
@@ -74,5 +97,42 @@ h1 {
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
 #reset-btn:active {
+    transform: scale(.98);
+}
+
+.ace-btns {
+    margin: -2rem auto;
+}
+
+#ace1 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(5, 3, 2);
+    border: none;
+    font-weight: bold;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    padding: .5rem 0rem;
+    width: 5rem;
+    margin: 2rem 1rem;
+    cursor: pointer;
+    box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+}
+#ace1:active {
+    transform: scale(.98);
+}
+#ace11 {
+    color: rgb(255, 255, 255);
+    background-color: rgb(5, 3, 2);
+    border: none;
+    font-weight: bold;
+    font-size: 1.75rem;
+    border-radius: 3px;
+    padding: .5rem 0rem;
+    width: 5rem;
+    margin: 2rem 1rem;
+    cursor: pointer;
+    box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
+}
+#ace11:active {
     transform: scale(.98);
 }
