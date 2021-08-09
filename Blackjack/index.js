@@ -142,24 +142,25 @@ function getNewCard() {
     }
 }
 
-function aceEquals1() {
-    playerTotal += 1
-    cardHolder.push(1)
-    // remove show class after choosing a number
-    document.getElementById('ace1').classList.remove('show')
-    document.getElementById('ace11').classList.remove('show')
+function chooseAce(num) {
+    if (num === 1) {
+        playerTotal += 1
+        cardHolder.push(1)
+        // remove show class after choosing a number
+        document.getElementById('ace1').classList.remove('show')
+        document.getElementById('ace11').classList.remove('show')
 
-    renderGame()
-    getPoints()
-}
-function aceEquals11() {
-    playerTotal += 11
-    cardHolder.push(11)
-    document.getElementById('ace1').classList.remove('show')
-    document.getElementById('ace11').classList.remove('show')
+        renderGame()
+        getPoints()
+    } else if (num === 11) {
+        playerTotal += 11
+        cardHolder.push(11)
+        document.getElementById('ace1').classList.remove('show')
+        document.getElementById('ace11').classList.remove('show')
 
-    renderGame()
-    getPoints()
+        renderGame()
+        getPoints()
+    }
 }
 
 function resetGame() {
