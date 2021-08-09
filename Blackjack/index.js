@@ -33,9 +33,9 @@ let displayDealerTotal = document.getElementById('dealer-el')
 document.getElementById('start-btn').disabled = false
 document.getElementById('newCard-btn').disabled = true
 document.getElementById('stand-btn').disabled = true
+document.getElementById('reset-btn').disabled = true
 
 function startGame() {
-    document.getElementById('reset-btn').disabled = true
     document.getElementById('start-btn').classList.add('clicked')
     document.getElementById('player-el').classList.add('show')
     // dealer draws cards until dealer total is more than 15
