@@ -47,6 +47,7 @@ function startGame() {
     }
 
     renderGame()
+    getPoints()
 }
 function stand() {
     document.getElementById('reset-btn').disabled = false
@@ -69,6 +70,19 @@ function stand() {
     }
     displayDealerTotal.textContent = `Dealer Total: ${dealerTotal}`
     document.getElementById('newCard-btn').disabled = true
+
+    getPoints()
+}
+
+function getPoints() {
+    if (didWin === true) {
+        playerEl.textContent = `${player.name}: $${player.chips += 50}`
+        // reset win boolean
+        didWin = null
+    } else if (didWin === false) {
+        playerEl.textContent = `${player.name}: $${player.chips -= 50}`
+        didWin = null
+    }
 }
 
 function renderGame() {
@@ -125,6 +139,7 @@ function getNewCard() {
         // add card to card array
         cardHolder.push(newCard)
         renderGame()
+        getPoints()
     }
 }
 
@@ -136,6 +151,7 @@ function aceEquals1() {
     document.getElementById('ace11').classList.remove('show')
 
     renderGame()
+    getPoints()
 }
 function aceEquals11() {
     playerTotal += 11
@@ -144,18 +160,10 @@ function aceEquals11() {
     document.getElementById('ace11').classList.remove('show')
 
     renderGame()
+    getPoints()
 }
 
 function resetGame() {
-    // give new point total on reset click
-    if (didWin === true) {
-        playerEl.textContent = `${player.name}: $${player.chips += 50}`
-        // reset win boolean
-        didWin = null
-    } else if (didWin === false) {
-        playerEl.textContent = `${player.name}: $${player.chips -= 50}`
-        didWin = null
-    }
 
     // reset text
     displayPlayerTotal.textContent = `Your total: `
