@@ -42,6 +42,10 @@ function startGame() {
     } if (dealerTotal <= 15) {
         dealerCards.push(getRandomCard())
         dealerTotal = dealerCards.reduce((a, b) => a + b)
+    // take away a card if total ridiculously high
+    } if (dealerTotal >= 25) {
+        dealerCards.pop()
+        dealerTotal = dealerCards.reduce((a, b) => a + b)
     }
     console.log(dealerCards)
     console.log(dealerTotal)
