@@ -89,6 +89,7 @@ function renderGame() {
         message.textContent = 'Do you want to draw a new card? Or STAND to be safe?'
         document.getElementById('newCard-btn').disabled = false
         document.getElementById('start-btn').disabled = true
+        document.getElementById('reset-btn').disabled = true
     } else if (playerTotal === 21) {
         message.textContent = "You win! Press 'Next Round' to play again"
         document.getElementById('newCard-btn').disabled = true
