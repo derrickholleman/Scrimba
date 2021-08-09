@@ -7,14 +7,12 @@ let player = {
 let playerEl = document.getElementById('player-el')
 playerEl.textContent = `${player.name}: $${player.chips}`
 
-// create player cards
+// get random numbers for player cards
 function getRandomCard() {
     return Math.floor(Math.random() * (11 - 2 + 1) + 2)
 }
-// store card numbers in an array
+// get player cards
 let cardHolder = [getRandomCard(), getRandomCard()]
-
-// get sum of current cards
 let sum = cardHolder.reduce((a, b) => a + b)
 
 // get dealer cards 
@@ -32,8 +30,6 @@ let displayDealerTotal = document.getElementById('dealer-el')
 document.getElementById('start-btn').disabled = false
 document.getElementById('newCard-btn').disabled = true
 document.getElementById('stand-btn').disabled = true
-document.getElementById('ace1').disabled = true
-document.getElementById('ace11').disabled = true
 
 function startGame() {
     document.getElementById('stand-btn').disabled = true
@@ -88,10 +84,6 @@ function renderGame() {
 
     // display sum
     displaySum.textContent = `Your Total: ${sum}`
-
-    // disable ace buttons if not choosing a 1 or 11
-    document.getElementById('ace1').disabled = true
-    document.getElementById('ace11').disabled = true
 }
 
 function getNewCard() {
@@ -99,10 +91,9 @@ function getNewCard() {
     // draw new card with random number
     let newCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
 
+    // if an Ace is drawn 
     if (sum <= 20 && newCard === 1) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
-        document.getElementById('ace1').disabled = false
-        document.getElementById('ace11').disabled = false
         document.getElementById('ace1').classList.add('show')
         document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
@@ -110,16 +101,12 @@ function getNewCard() {
         document.getElementById('stand-btn').disabled = true
     } else if (sum <= 20 && newCard === 11) {
         message.textContent = "You drew an Ace!  Please specify if you'd like a 1 or an 11"
-        document.getElementById('ace11').disabled = false
-        document.getElementById('ace1').disabled = false
         document.getElementById('ace1').classList.add('show')
         document.getElementById('ace11').classList.add('show')
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('start-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
     } else {
-        document.getElementById('ace11').disabled = true
-        document.getElementById('ace1').disabled = true
         // add card value to current sum
         sum += newCard
         // add card to card array
@@ -131,11 +118,16 @@ function getNewCard() {
 function aceEquals1() {
     sum += 1
     cardHolder.push(1)
+    // remove show class after choosing a number
+    document.getElementById('ace1').classList.remove('show')
+    document.getElementById('ace11').classList.remove('show')
     renderGame()
 }
 function aceEquals11() {
     sum += 11
     cardHolder.push(11)
+    document.getElementById('ace1').classList.remove('show')
+    document.getElementById('ace11').classList.remove('show')
     renderGame()
 }
 
