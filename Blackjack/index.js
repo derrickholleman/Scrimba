@@ -143,6 +143,7 @@ function aceEquals11() {
 }
 
 function resetGame() {
+    // give new point total on reset click
     if (didWin === true) {
         playerEl.textContent = `${player.name}: $${player.chips += 50}`
         // reset win boolean
