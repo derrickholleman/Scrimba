@@ -77,10 +77,12 @@ function stand() {
 function getPoints() {
     if (didWin === true) {
         playerEl.textContent = `${player.name}: $${player.chips += 50}`
+        document.getElementById('player-el').classList.add('shake')
         // reset win boolean
         didWin = null
     } else if (didWin === false) {
         playerEl.textContent = `${player.name}: $${player.chips -= 50}`
+        document.getElementById('player-el').classList.add('shake')
         didWin = null
     }
 }
@@ -186,6 +188,10 @@ function resetGame() {
 
     // disable stand button directly after reset 
     document.getElementById('stand-btn').disabled = true
+
+    // remove classes
+
+    document.getElementById('player-el').classList.remove('shake')
 
     document.getElementById('ace1').classList.remove('show')
     document.getElementById('ace11').classList.remove('show')
