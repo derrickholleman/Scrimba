@@ -35,20 +35,18 @@ function startGame() {
     document.getElementById('stand-btn').disabled = true
     document.getElementById('reset-btn').disabled = true
     renderGame()
-    // draw cards until dealer total is more than 15
+    // dealer draws cards until dealer total is more than 15
     if (dealerTotal <= 15) {
         dealerCards.push(getRandomCard())
         dealerTotal = dealerCards.reduce((a, b) => a + b)
     } if (dealerTotal <= 15) {
         dealerCards.push(getRandomCard())
         dealerTotal = dealerCards.reduce((a, b) => a + b)
-    // take away a card if total ridiculously high
+    // take away a card if dealer total ridiculously high
     } if (dealerTotal >= 25) {
         dealerCards.pop()
         dealerTotal = dealerCards.reduce((a, b) => a + b)
     }
-    console.log(dealerCards)
-    console.log(dealerTotal)
 }
 function stand() {
     document.getElementById('reset-btn').disabled = false
