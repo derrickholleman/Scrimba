@@ -34,10 +34,9 @@ document.getElementById('newCard-btn').disabled = true
 document.getElementById('stand-btn').disabled = true
 document.getElementById('ace1').disabled = true
 document.getElementById('ace11').disabled = true
-document.getElementById('reset-btn').disabled = true
 
 function startGame() {
-    document.getElementById('stand-btn').disabled = false
+    document.getElementById('stand-btn').disabled = true
     document.getElementById('reset-btn').disabled = true
     renderGame()
 }
@@ -75,6 +74,7 @@ function renderGame() {
         message.textContent = "You win! Press 'Reset' to play again"
         document.getElementById('newCard-btn').disabled = true
         document.getElementById('stand-btn').disabled = true
+        document.getElementById('reset-btn').disabled = false
         didWin = true
     } else {
         message.textContent = "You're out of the game! Press 'Reset' to play again"
@@ -148,10 +148,10 @@ function resetGame() {
     }
 
     // reset text
-    displaySum.textContent = `Current cards: `
-    displayCards.textContent = `Your total: `
+    displaySum.textContent = `Your total: `
+    displayCards.textContent = `Current cards: `
     message.textContent = `Want to play a round?`
-    displayDealerTotal.textContent = `Dealer Total: `
+    displayDealerTotal.textContent = `Dealer total: `
 
     // reset cards 
     cardHolder = [getRandomCard(), getRandomCard()]
