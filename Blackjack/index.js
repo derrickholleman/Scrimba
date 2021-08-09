@@ -32,9 +32,7 @@ document.getElementById('newCard-btn').disabled = true
 document.getElementById('stand-btn').disabled = true
 
 function startGame() {
-    document.getElementById('stand-btn').disabled = true
     document.getElementById('reset-btn').disabled = true
-    renderGame()
     // dealer draws cards until dealer total is more than 15
     if (dealerTotal <= 15) {
         dealerCards.push(getRandomCard())
@@ -47,6 +45,8 @@ function startGame() {
         dealerCards.pop()
         dealerTotal = dealerCards.reduce((a, b) => a + b)
     }
+
+    renderGame()
 }
 function stand() {
     document.getElementById('reset-btn').disabled = false
@@ -60,11 +60,11 @@ function stand() {
         message.textContent = "It's a tie! Press 'Reset' to play again"
         didWin = null
     } else if (dealerTotal === 21) {
-        message.textContent = 'Dealer got Blackjack, you lose!'
+        message.textContent = 'Dealer got 21, you lose!'
         didWin = false
     }
     else {
-        message.textContent = "Oh no!  You were beaten. Press 'Reset' to play again"
+        message.textContent = "Oh no!  You lost. Press 'Reset' to play again"
         didWin = false
     }
     displayDealerTotal.textContent = `Dealer Total: ${dealerTotal}`
@@ -134,6 +134,7 @@ function aceEquals1() {
     // remove show class after choosing a number
     document.getElementById('ace1').classList.remove('show')
     document.getElementById('ace11').classList.remove('show')
+
     renderGame()
 }
 function aceEquals11() {
@@ -141,6 +142,7 @@ function aceEquals11() {
     cardHolder.push(11)
     document.getElementById('ace1').classList.remove('show')
     document.getElementById('ace11').classList.remove('show')
+
     renderGame()
 }
 
