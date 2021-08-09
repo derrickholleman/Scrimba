@@ -27,11 +27,11 @@ h1 {
 }
 
 .info-section {
-    font-size: clamp(1.15rem, 2vw, 2rem)
+    font-size: clamp(1.15rem, 2vw, 1.4rem)
 }
 
 .new-stand > button {
-    margin: .75rem;
+    margin: .5rem;
 }
 
 .btns {
@@ -97,7 +97,7 @@ h1 {
     border-radius: 3px;
     padding: .5rem 0rem;
     width: 10rem;
-    margin: .5rem auto 1.5rem auto;
+    margin: 1rem auto 1.5rem auto;
     cursor: pointer;
     box-shadow: 0px 3px 4px 1px rgba(0, 0, 0, .3);
 }
