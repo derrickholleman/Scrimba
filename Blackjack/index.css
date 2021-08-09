@@ -27,10 +27,13 @@ h1 {
 }
 
 #player-el {
-    font-size: clamp(1.25rem, 2vw, 2rem);
-    position: absolute;
-    top: -1rem;
-    right: 5%;
+    font-size: clamp(1.75rem, 3vw, 2.2rem);
+    display: none;
+}
+#player-el.show {
+    display: block;
+    color: rgb(226, 142, 63);
+    margin: 1rem 0 0 0;
 }
 #player-el.shake {
   animation-name: hvr-wobble-horizontal;
@@ -98,6 +101,9 @@ h1 {
 }
 #start-btn:active {
     transform: scale(.98);
+}
+#start-btn.clicked {
+    display: none;
 }
 #newCard-btn {
     color: rgb(12, 88, 12);

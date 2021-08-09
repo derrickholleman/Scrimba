@@ -11,8 +11,11 @@ playerEl.textContent = `${player.name}: $${player.chips}`
 function getRandomCard() {
     return Math.floor(Math.random() * (11 - 2 + 1) + 2)
 }
+function getRandomCard1Through10() {
+    return Math.floor(Math.random() * (10 - 2 + 1) + 2)
+}
 // get player cards
-let cardHolder = [getRandomCard(), getRandomCard()]
+let cardHolder = [getRandomCard(), getRandomCard1Through10()]
 let playerTotal = cardHolder.reduce((a, b) => a + b)
 
 // get dealer cards 
@@ -33,45 +36,11 @@ document.getElementById('stand-btn').disabled = true
 
 function startGame() {
     document.getElementById('reset-btn').disabled = true
+    document.getElementById('start-btn').classList.add('clicked')
+    document.getElementById('player-el').classList.add('show')
     // dealer draws cards until dealer total is more than 15
-    if (dealerTotal <= 15) {
-        dealerCards.push(getRandomCard())
-        dealerTotal = dealerCards.reduce((a, b) => a + b)
-    } if (dealerTotal <= 15) {
-        dealerCards.push(getRandomCard())
-        dealerTotal = dealerCards.reduce((a, b) => a + b)
-    // take away a card if dealer total ridiculously high
-    } if (dealerTotal >= 25) {
-        dealerCards.pop()
-        dealerTotal = dealerCards.reduce((a, b) => a + b)
-    }
 
     renderGame()
-    getPoints()
-}
-function stand() {
-    document.getElementById('reset-btn').disabled = false
-    if (playerTotal > dealerTotal && playerTotal < 21 && dealerTotal !== 21) {
-        message.textContent = "Good call! Press 'Next Round' to play again"
-        didWin = true
-    } else if (playerTotal < 21 && dealerTotal > 21) {
-        message.textContent = "You win! Press 'Next Round' to play again"
-        didWin = true
-    } else if (playerTotal === dealerTotal) {
-        message.textContent = "It's a tie! Press 'Next Round' to play again"
-        didWin = null
-    } else if (dealerTotal === 21) {
-        message.textContent = 'Dealer got 21, you lose!'
-        didWin = false
-    }
-    else {
-        message.textContent = "Oh no!  You lost. Press 'Next Round' to play again"
-        didWin = false
-    }
-    displayDealerTotal.textContent = `Dealer Total: ${dealerTotal}`
-    document.getElementById('newCard-btn').disabled = true
-
-    getPoints()
 }
 
 function getPoints() {
@@ -85,6 +54,32 @@ function getPoints() {
         document.getElementById('player-el').classList.add('shake')
         didWin = null
     }
+}
+
+function stand() {
+    document.getElementById('reset-btn').disabled = false
+    if (playerTotal > dealerTotal && playerTotal < 21 && dealerTotal !== 21) {
+        message.textContent = "Good call! Press 'Next Round' to play again"
+        didWin = true
+    } else if (playerTotal < 21 && dealerTotal > 21) {
+        message.textContent = "You win! Press 'Next Round' to play again"
+        didWin = true
+    } else if (playerTotal === dealerTotal) {
+        message.textContent = "It's a push! Press 'Next Round' to play again"
+        didWin = null
+    } else if (dealerTotal === 21) {
+        message.textContent = "Dealer got 21, you lose! Press 'Next Round' to play again"
+        didWin = false
+    }
+    else {
+        message.textContent = "Oh no!  You lost. Press 'Next Round' to play again"
+        didWin = false
+    }
+    displayDealerTotal.textContent = `Dealer Total: ${dealerTotal}`
+    document.getElementById('newCard-btn').disabled = true
+    document.getElementById('stand-btn').disabled = true
+
+    getPoints()
 }
 
 function renderGame() {
@@ -118,7 +113,7 @@ function renderGame() {
 function getNewCard() {
     document.getElementById('reset-btn').disabled = false
     // draw new card with random number
-    let newCard = Math.floor(Math.random() * (11 - 2 + 1) + 2)
+    let newCard = getRandomCard()
 
     // if an Ace is drawn 
     if (playerTotal <= 20 && newCard === 1) {
@@ -174,7 +169,7 @@ function resetGame() {
     displayDealerTotal.textContent = `Dealer total: `
 
     // reset cards 
-    cardHolder = [getRandomCard(), getRandomCard()]
+    cardHolder = [getRandomCard(), getRandomCard1Through10()]
 
     // reset sum
     playerTotal = cardHolder.reduce((a, b) => a + b)
@@ -182,6 +177,18 @@ function resetGame() {
     // reset dealer cards 
     dealerCards = [getRandomCard(), getRandomCard(), getRandomCard()]
     dealerTotal = dealerCards.reduce((a, b) => a + b)
+
+    if (dealerTotal <= 15) {
+        dealerCards.push(getRandomCard())
+        dealerTotal = dealerCards.reduce((a, b) => a + b)
+    } if (dealerTotal <= 15) {
+        dealerCards.push(getRandomCard())
+        dealerTotal = dealerCards.reduce((a, b) => a + b)
+    // take away a card if dealer total ridiculously high
+    } if (dealerTotal >= 25) {
+        dealerCards.pop()
+        dealerTotal = dealerCards.reduce((a, b) => a + b)
+    }
 
     // allow start button to be clicked again
     document.getElementById('start-btn').disabled = false
@@ -195,4 +202,7 @@ function resetGame() {
 
     document.getElementById('ace1').classList.remove('show')
     document.getElementById('ace11').classList.remove('show')
+
+    renderGame()
+    getPoints()
 }

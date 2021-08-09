@@ -6,12 +6,11 @@
     </head>
     <body>
         <h1>Blackjack</h1>
-        <p id='player-el'>Player 1 Winnings: </p>
         <div class="ace-btns">
             <button id='ace1' onclick="aceEquals1()">1</button>
             <button id='ace11' onclick="aceEquals11()">11</button>
         </div>
-        <p id="message-el">Want to play a round?</p>
+        <p id="message-el">Want to play a round?  Press START GAME to play!</p>
         <div class="info-section">
             <p id='cards-el'>Current cards: </p>
             <p id='sum-el'>Your total: </p>
@@ -20,6 +19,7 @@
 
         <div class="btns">
             <button id='start-btn' onclick="startGame()">START GAME</button>
+            <p id='player-el'>Player 1 Winnings: </p>
             <div class="new-stand">
                 <button id='newCard-btn' onclick="getNewCard()">NEW CARD</button>
                 <button id='stand-btn' onclick="stand()"> STAND</button>
