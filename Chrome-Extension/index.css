@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+input {
+    border: 1px solid #5f9341;
+    padding: .75rem;
+    margin-bottom: .5rem;
+    width: 100%;
+    max-width: 500px;
+}
+
+button {
+    background-color: #5f9341;
+    border: none;
+    padding: .75rem 1.5rem;
+    color: white;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+}
+button:active {
+    transform: scale(.98);
+}
