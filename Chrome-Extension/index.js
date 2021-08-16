@@ -16,7 +16,7 @@ function renderLeads() {
     // don't allow push if value is empty, else push value
     inputEl.value.length === 0 ? null : myLeads.push(inputEl.value)
     // map leads to <ul> tag as <li> by using innerHTML
-    listItems = myLeads.map((lead) => `<li><a href='${lead}' target=_blank">${lead}</a></li>`).join('')
+    listItems = myLeads.map((lead) => `<li><a href=${lead} target=_blank>${lead}</a></li>`).join('')
     // only manipulating DOM once, instead of on each render
     renderInput.innerHTML = listItems
 }
