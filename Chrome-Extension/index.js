@@ -4,7 +4,7 @@ const inputEl = document.getElementById('input-el')
 const renderInput = document.getElementById('leads-el')
 
 
-inputBtn.addEventListener('click', function () {
+inputBtn.addEventListener('click', () => {
     renderLeads()
     // reset input field 
     inputEl.value = ''
