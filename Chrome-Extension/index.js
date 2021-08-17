@@ -19,18 +19,12 @@ inputBtn.addEventListener('click', () => {
 })
 
 function renderLeads() {
-    // declare string to store leads
-    let listItems = ''
-
     // map leads to <ul> tag as <li> by using innerHTML
-    listItems = myLeads.map((lead) => 
+    renderInput.innerHTML = myLeads.map((lead) => 
     `
         <li>
             <a href=${lead} target=_blank>${lead}</a>
         </li>
     `
     ).join('')
-
-    // only manipulating DOM once, instead of on each render
-    renderInput.innerHTML = listItems
 }
