@@ -15,7 +15,7 @@ inputBtn.addEventListener('click', () => {
     // save leads leads array to localStorage as a string
     localStorage.setItem('myLeads', JSON.stringify(myLeads))
 
-    renderLeads()
+    renderLeads()   
 })
 
 function renderLeads() {
@@ -28,3 +28,4 @@ function renderLeads() {
     `
     ).join('')
 }
+
