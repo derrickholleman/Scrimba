@@ -1,10 +1,11 @@
 let myLeads = []
 const inputBtn = document.getElementById('input-btn')
 const deleteBtn = document.getElementById('delete-btn')
+const tabBtn = document.getElementById('tab-btn')
 const inputEl = document.getElementById('input-el')
 const renderInput = document.getElementById('leads-el')
 
-// fetch leads from storage by it's key name, set as an array
+// fetch leads from storage by it's key name, as an array
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'))
 
 // check if there are leads before rendering to page
@@ -44,5 +45,20 @@ deleteBtn.addEventListener('click', () => {
 
     // render empty leads array to page
     render(myLeads) 
+})
+
+tabBtn.addEventListener('click', () => {
+    // grab URL of current tab 
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+
+        // push tab to leads array on click
+        myLeads.push(tabs[0].url)
+
+        // update localStorage to include tab
+        localStorage.setItem('myLeads', JSON.stringify(myLeads))
+
+        render(myLeads)
+    })
+
 })
 
