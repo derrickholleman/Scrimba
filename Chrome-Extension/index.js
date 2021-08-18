@@ -48,13 +48,13 @@ deleteBtn.addEventListener('click', () => {
 })
 
 tabBtn.addEventListener('click', () => {
-    // grab URL of current tab 
+    // grab URL of current tab using Chrome API
     chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 
-        // push tab to leads array on click
+        // push newest tab to leads array on click
         myLeads.push(tabs[0].url)
 
-        // update localStorage to include tab
+        // update localStorage to include new tab
         localStorage.setItem('myLeads', JSON.stringify(myLeads))
 
         render(myLeads)
