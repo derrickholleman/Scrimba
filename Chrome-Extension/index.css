@@ -2,7 +2,7 @@ body {
     padding: 10px;
     font-family: Arial, Helvetica, sans-serif;
     box-sizing: border-box;
-    min-width: 400px; /* sets min-width for extension */
+    /* min-width: 400px; sets min-width for extension */
 }
 
 input {
@@ -13,11 +13,26 @@ input {
     max-width: 500px;
 }
 
-button {
+.btns {
+    display: flex;
+}
+
+#input-btn {
     background-color: #5f9341;
     border: none;
     padding: .75rem 1.5rem;
     color: white;
+    font-weight: bold;
+    display: block;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: .5rem;
+}
+#delete-btn {
+    background-color: white;
+    border: 1px solid #5f9341;
+    padding: .75rem 1.5rem;
+    color: #5f9341;
     font-weight: bold;
     display: block;
     cursor: pointer;
