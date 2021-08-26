@@ -32,7 +32,7 @@ inputBtn.addEventListener('click', () => {
     inputEl.value.length === 0 ? null : myLeads.push(inputEl.value)
     // reset input field 
     inputEl.value = ''
-    // save leads leads array to localStorage as a string, with they key 'myLeads'
+    // save leads leads array to localStorage as a string, with the key 'myLeads'
     localStorage.setItem('myLeads', JSON.stringify(myLeads))
 
     render(myLeads)   
