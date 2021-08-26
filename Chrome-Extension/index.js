@@ -8,8 +8,9 @@ const renderInput = document.getElementById('leads-el')
 // fetch leads from storage by it's key name, as an array
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem('myLeads'))
 
-// check if there are leads before rendering to page
+// check if there are leads before rendering to page (happens on page load)
 if (leadsFromLocalStorage) {
+    // set leads array to what's stored in localStorage
     myLeads = leadsFromLocalStorage
     render(myLeads)
 } else {
